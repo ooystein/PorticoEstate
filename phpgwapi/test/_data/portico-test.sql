@@ -6973,6 +6973,9 @@ cols_return_1__1_f	eNpLtDKxqs60MrAutjKyUspMUbLOtDIEcgyNrZRy8pMTSzLz8+KT81NSQRJGQ
 sql_2_lt_l1_f	eNptkFELgjAQx7/K4ZNGDJQIMnwKhcIUyvdj6AwhXcxB9e0bi2R27mW73/3vx7Ex3mx3sXdN8/RQQdvjXdZcd3KI2Go9K80rJCRySWgzOPBe0CDFaG5xk+rNGjHWCvgIP4JavDRAdinP4JszWwwATuWxcFkIZQE+WRcSIOsFAeRpVk0K+RyEsuPzrOXYNV+HrVjX/E8/uNIoW9QmsCBx25PLhQtK+j9EHLGplSyPWK+3/wCmx6V9
 uicols_2__1_f	eNqlUkFugzAQ/ErlF8QGqnS59dZL1VOvyMEOsQoGgamCIv7etY0TO61UVT2gnRmDZ3ZZDnu4TEB3QJQeZlOZZZCk5PAIFwW7ckJATkoIqUmpgN4LDIUciJFnY2mW0jylRUxXhzXvUjuGQUSwohmQtq+5Ub2u6l7IyBJ1GlkiZcHyyZ9W/nLv6zW2aWheABFyqsfE3Ypz1y0hQMyt7x7IMPaDHM0SvFE6zKoVSjfB38YOrz288k8dQtiD8PJ2sPrhT4abefKT+Vuet+95nv+XB2+Q5/rEdRP/mgM+NoSvDCt1jr7mWy1c9ePlrWp00g42GjrZIPMLVUtt5BhaSIRth1p5jHfIUx9WcBze/dr+bGW/VPojGFEgL9chAXm/zsXh1W3NsR87blyYX6/fYHaD+Q0WAa7rF6sHBwo=
 cols_return_2__1_f	eNpLtDKzqs60MrAutjKyUspMUbLOtDIEcgyNrZRy8pMTSzLz8+KT81NSQRJGQAkTsLghiGsM5xqBuCZAriVENj4vMReswxQuZgQVqwUAjtAiGQ==
+sql_3_lt_l1_f	eNptkVELgjAUhf/KxSeNEDahwOghSqEwhfJ9iM4Q0oUOqn+fTZTp3V62++2cc3dZ52/I1rfuQRQcUyhr9hR5JivReO5qPSv7E0GEIuLphCgXa7Ka65gqK8KDH2PW7/wh2q9b8C5vIetgJEzyjwQIb8kV7P+ajQAAl+Qc64xCEoONxoA9oPc5cIhPWEsMWuI4qBNZdqIGNxndURCmU4R4N7xV9rlWcVYVQ4aq3KpYul9ZK5komewFhhD9esrSoSESfwUK9tzpam+2qFxr9wMv9dgI
+uicols_3__1_f	eNq1k01uwyAQha9ScYL4l3Syq9RFN1VX3UbEkATVxpaNq0SV714wjA1JpaqLLqx572Hij2HCYAtfAyQbIFJ1o97rayfIjtlYwmY3QAnkLDkXiuwkJLdBaoIciBYXbW0W2zy2RWzL2NLQTrNWrIlhUoPJESTJgNRtxbRs1b5quQiATJ4EQMamAZCxGQI9upf37luOymXpktEly3xm+AogXAxVHwHacGyaKzKG3qJtgXR924leXxHPRIdR1lyqEyKaSCjdM1UJxLSHxZ0Pr+xTIatdwP3LAvUL+Ct+YXI3PWimx8E1+m/sb/fsT/fsz//Ebttyqc5MncKpOJjHAruamprMdK7mvha+lr7SubprZLU8qagVpknYBS9TN/mVoRI9Hj8K8tvAj3stjuG4o6WhdYfjzFzM7f/vZxS7U6qPcMS9tRgJkJel+UDel357TRc9zYN9bPuG6Rn71y97ma0yX2WxynKVFOU0fQMni1Bk
+cols_return_3__1_f	eNo9zEsOgCAMRdG9sAJp8VcWQwg4aKIw0Jlx71I0HZ77mkZa6GYa/ElAhrPxTLbBIpm9pnhxLSHVvMkAbXC9WyEqQeiUKBwb1+84lHj0B5M20DZrw789L9MKLF8=
 \.
 
 
@@ -7381,8 +7384,8 @@ bilagsnr_ut	0	0	\N	Bilagsnummer utgående
 Ecobatchid	0	1	\N	Ecobatchid
 project	0	1000	\N	project
 Statuslog	0	1	\N	Statuslog
-workorder	0	1000	\N	workorder
 request	0	1000	\N	request
+workorder	0	1001	\N	workorder
 \.
 
 
@@ -7684,6 +7687,7 @@ COPY public.fm_order_template (id, name, content, public, user_id, entry_date, m
 --
 
 COPY public.fm_orders (id, type) FROM stdin;
+1001	ticket
 \.
 
 
@@ -8049,6 +8053,8 @@ COPY public.fm_tts_history (history_id, history_record_id, history_appname, hist
 3	2	tts	1002	O	1517584533		2018-02-02 15:15:33	\N
 4	2	tts	1002	S	Message 2 with medium priority		2018-02-02 15:16:26	\N
 5	3	tts	1002	O	1517584650		2018-02-02 15:17:30	\N
+6	4	tts	1002	O	1521052967		2018-03-14 18:42:47	\N
+7	5	tts	1002	O	1521053031		2018-03-14 18:43:51	\N
 \.
 
 
@@ -8087,6 +8093,8 @@ COPY public.fm_tts_tickets (id, group_id, priority, user_id, assignedto, subject
 1	1000	1	1002	\N	Message 1 with high priority	4	\N	\N	O	Details of message 1	5000-01	\N	\N	\N	5000	01	\N	\N	\N	Location name	\N	\N	\N	1517584417	0	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	0.00	\N	\N	\N	\N	1	\N	1517584481	\N	\N	0.00	\N	\N	\N	\N	\N	\N	\N
 2	1000	2	1002	\N	Message 2 with medium priority	5	\N	\N	O	Message 2	5000-01	\N	\N	\N	5000	01	\N	\N	\N	Location name	\N	\N	\N	1517584533	0	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	0.00	\N	\N	\N	\N	1	\N	1517584586	\N	\N	0.00	\N	\N	\N	\N	\N	\N	\N
 3	1000	3	1002	\N	Message 3 with low priority	4	\N	\N	O	Message 3	5000-01	\N	\N	\N	5000	01	\N	\N	\N	Location name	\N	\N	\N	1517584650	0	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	0.00	\N	\N	\N	\N	1	\N	1517584650	\N	\N	0.00	\N	\N	\N	\N	\N	\N	\N
+4	1000	3	1002	\N	Message 4 ready for an order	4	\N	\N	O	Test text for message 4	5000-01	\N	\N	\N	5000	01	\N	\N	\N	Location name	\N	\N	\N	1521052967	0	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	0.00	\N	\N	\N	\N	1	\N	1521052967	\N	\N	0.00	\N	\N	\N	\N	\N	\N	\N
+5	1000	3	1002	\N	Message 5 with order	4	\N	\N	O	Test message for message 5	5000-01	\N	\N	\N	5000	01	\N	\N	\N	Location name	\N	\N	\N	1521053031	0	\N	0	1001	1002	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	0.00	\N	\N	\N	\N	1	\N	1521053040	\N	\N	0.00	\N	\N	\N	\N	\N	\N	Message 5 with order
 \.
 
 
@@ -8098,6 +8106,8 @@ COPY public.fm_tts_views (id, account_id, "time") FROM stdin;
 1	1002	1517584417
 2	1002	1517584547
 3	1002	1517584650
+4	1002	1521052871
+5	1002	1521053031
 \.
 
 
@@ -8338,6 +8348,7 @@ pa18sju96ck15ajq1hu8e07mk5                                      	sysadmin	10.0.2
 jsnuv2gp6ak3uju9amp98qd0p1                                      	sysadmin	::1	1516568037	0	1002
 mve68hrpo5ldppgq18p25g50b7                                      	sysadmin	10.0.2.2	1517583869	0	1002
 mve68hrpo5ldppgq18p25g50b7                                      	sysadmin	10.0.2.2	1517584176	0	1002
+0vihm9lvhuvkhjmooklfn924g7                                      	sysadmin	172.18.0.1	1521052871	0	1002
 \.
 
 
@@ -8362,7 +8373,7 @@ COPY public.phpgw_accounts (account_id, account_lid, account_pwd, account_firstn
 1006	rental_in	{SSHA}uQ0HS43zzaXL6CUM010uvb/hFqn9Ow==	Rental	In	\N	\N	\N	\N	\N	A	-1	u	7	0
 1007	rental_out	{SSHA}u+ze+itaqkXHfb6bPdK6+v619SldwQ==	Rental	Out	\N	\N	\N	\N	\N	A	-1	u	8	0
 1008	rental_manager	{SSHA}COrtFIX65F5oNfc2Fur8wwX1xGW4sQ==	Rental	Manager	\N	\N	\N	\N	\N	A	-1	u	9	0
-1002	sysadmin	{SSHA}36GXgxF7YdWU4xUSsxHK8NlN41y2VA==	System	Administrator	\N	\N	1517584176	10.0.2.2	\N	A	-1	u	3	0
+1002	sysadmin	{SSHA}36GXgxF7YdWU4xUSsxHK8NlN41y2VA==	System	Administrator	\N	\N	1521052871	172.18.0.1	\N	A	-1	u	3	0
 \.
 
 
@@ -9836,8 +9847,9 @@ COPY public.phpgw_applications (app_id, app_name, app_enabled, app_order, app_ta
 --
 
 COPY public.phpgw_async (id, next, times, method, data, account_id) FROM stdin;
-rental_populate_workbench_notifications	1517616000	a:1:{s:3:"day";s:3:"*/1";}	rental.sonotification.populate_workbench_notifications	a:1:{s:4:"time";i:1517616000;}	0
-rental_run_adjustments	1517616000	a:1:{s:3:"day";s:3:"*/1";}	rental.soadjustment.run_adjustments	a:1:{s:4:"time";i:1517616000;}	0
+##last-check-run##	0	a:0:{}	none	a:3:{s:6:"run_by";s:8:"fallback";s:5:"start";i:1521053040;s:3:"end";i:1521053040;}	0
+rental_populate_workbench_notifications	1521072000	a:1:{s:3:"day";s:3:"*/1";}	rental.sonotification.populate_workbench_notifications	a:1:{s:4:"time";i:1521072000;}	0
+rental_run_adjustments	1521072000	a:1:{s:3:"day";s:3:"*/1";}	rental.soadjustment.run_adjustments	a:1:{s:4:"time";i:1521072000;}	0
 \.
 
 
@@ -12132,6 +12144,7 @@ yes	common	no	Ja
 you have 1 new message!	common	no	Du har 1 ny melding!
 you have %1 new messages!	common	no	Du har %1 nye meldinger!
 your message has been sent	common	no	Din melding har blitt sent
+reset approval	property	no	Nullstill
 your search returned 1 match	common	no	ditt søk gav 1 treff
 your search returned %1 matchs	common	no	ditt søk gav %1 treff
 your settings have been updated	common	no	Dine innstillinger har blitt oppdatert
@@ -12642,7 +12655,6 @@ repeat type	property	no	Type serie
 repeat day	property	no	Gjenta dag
 request	property	no	Behov
 set the status of the request	property	no	Sett status for behovet
-reset approval	property	no	Nullstill
 project.request	property	no	Behov
 request attributes	property	no	Behov egenskaper
 request an email receipt	property	no	Be om kvittering
@@ -12735,6 +12747,8 @@ search by feste. to show all entries, empty all fields and press the submit butt
 search by gaards nr. to show all entries, empty all fields and press the submit button again	property	no	Søk etter gårdsnr.
 search by location_code. to show all entries, empty all fields and press the submit button again	property	no	Søk etter lokaliseringskode
 search by property	property	no	Søk ved eiendom
+shift down	property	no	Skift ned
+shift up	property	no	Skift opp
 search by seksjon. to show all entries, empty all fields and press the submit button again	property	no	Søk etter seksjon
 search criteria	property	no	Søkekriterie
 search for history at this location	property	no	Søk etter historikk for denne lokaliseringen
@@ -12814,6 +12828,7 @@ select the category the apartment belongs to. to do not use a category select no
 select the category the building belongs to. to do not use a category select no category	property	no	Velg kategori bygningene tilhører. For ikke å bruke kategori velg KATEGORI IKKE VALGT
 select the category the claim belongs to. to do not use a category select no category	property	no	Velg kategorien dette kravet tilhører
 select the category the custom belongs to. to do not use a category select no category	property	no	Velg kategorien denne egentilpassede tilhører
+choose profile	property	no	Velg profil
 select the category the data belong to. to do not use a category select no category	property	no	Velg kategorien posten tilhører
 select the category the document belongs to. to do not use a category select no category	property	no	Velg kategori dokumentene tilhører. For ikke å bruke kategori velg KATEGORI IKKE VALGT
 select the category the entrance belongs to. to do not use a category select no category	property	no	Velg kategori inngang tilhører. For ikke å bruke kategori velg KATEGORI IKKE VALGT
@@ -12863,6 +12878,8 @@ select the level for this information	property	no	Velg nivå for denne informasj
 select the method for this times service	property	no	Velg metode
 select the owner	property	no	Velg eier
 select the owner type. to show all entries select show all	property	no	Velg eiertype
+show all entities	common	no	Vis alle poster
+show calculated cost	property	no	Vis sum
 select the part of town the building belongs to. to do not use a part of town -  select no part of town	property	no	Velg bydel bygg tilhører. For ikke å bruke bydel velg BYDEL IKKE VALGT
 select the part of town the investment belongs to. to do not use a part of town -  select no part of town	property	no	Velg bydel investeriong tilhører. For ikke å bruke bydel velg BYDEL IKKE VALGT
 select the part of town the property belongs to. to do not use a part of town -  select no part of town	property	no	Velg bydel eiendom tilhører. For ikke å bruke bydel velg BYDEL IKKE VALGT
@@ -12935,10 +12952,6 @@ set tax	property	no	Angi MVA
 set tax during import	property	no	Registrer mva ifm import
 set the status of the ticket	property	no	Sett status for meldingen
 shared use	property	no	Delt bruk
-shift down	property	no	Skift ned
-shift up	property	no	Skift opp
-show all entities	common	no	Vis alle poster
-show calculated cost	property	no	Vis sum
 show calculated cost on the printview	property	no	Vis sum på utskrift
 show details	property	no	Vis detaljer
 show in list	property	no	Vis i oversikt
@@ -13316,7 +13329,6 @@ import components	property	no	Importer FDV-dokumentasjon
 relations	property	no	Koblinger
 components	property	no	Komponenter
 locations	property	no	Lokasjoner
-choose profile	property	no	Velg profil
 attributes template	property	no	Mal for feltmapping
 preview	property	no	Forhåndsvis
 start upload	property	no	Start opplasting
@@ -13421,6 +13433,7 @@ path	property	no	Sti
 please - enter a invoice num!	property	no	Angi et bilagsnummer
 please - enter an integer for order!	property	no	Angi et heltall for bestiling
 please - select write off period or enter new number of period !	property	no	Velg avskrivningsperiode, og antall perioder
+add invoice	property	en	Add invoice
 please enter a category !	property	no	Angi en kategori
 please enter a description !	property	no	Angi en beskrivelse
 please enter a multiplier !	property	no	Angi en multiplikator
@@ -13699,7 +13712,6 @@ add from template	property	en	Add from template
 add gab	property	en	Add gab
 add hour	property	en	Add hour
 add investment	property	en	add investment
-add invoice	property	en	Add invoice
 add items from a predefined template	property	en	add items from a predefined template
 add items from this vendors prizebook	property	en	add items from this vendors prizebook
 add location	property	en	add location
@@ -13887,6 +13899,7 @@ column name not entered!	property	en	Column name not entered!
 columns	property	en	columns
 columns is updated	property	en	columns is updated
 common costs	property	en	common costs
+edit status	property	en	edit status
 condidtion degree	property	en	Condidtion degree
 config	property	en	Config
 configuration	property	en	Configuration
@@ -14095,7 +14108,6 @@ edit property	property	en	edit property
 edit report	property	en	edit report
 edit request	property	en	Edit request
 edit standard	property	en	edit standard
-edit status	property	en	edit status
 edit template	property	en	Edit template
 edit the actor	property	en	edit the actor
 edit the agreement	property	en	edit the agreement
@@ -14560,6 +14572,7 @@ no district	property	en	no district
 no document type	property	en	no document type
 no entity type	property	en	No entity type
 no equipment type	property	en	No equipment type
+yes	controller	no	Ja
 no file selected	property	en	No file selected
 no granting group	property	en	No granting group
 no group	property	en	No group
@@ -14944,6 +14957,7 @@ select the part of town the investment belongs to. to do not use a part of town 
 select the part of town the property belongs to. to do not use a part of town -  select no part of town	property	en	Select the part of town the property belongs to. To do not use a part of town -  select NO PART OF TOWN
 select the part of town the selection belongs to. to do not use a part of town select no part of town	property	en	Select the part of town the selection belongs to. To do not use a part of town select NO PART OF TOWN
 select the priority the selection belongs to.	property	en	Select the priority the selection belongs to.
+standard has been saved	property	en	standard has been saved
 select the property by clicking this link	property	en	Select the property by clicking this link
 select the status the agreement belongs to. to do not use a category select no status	property	en	Select the status the agreement belongs to. To do not use a category select NO STATUS
 select the status the agreement group belongs to. to do not use a category select no status	property	en	Select the status the agreement group belongs to. To do not use a category select NO STATUS
@@ -15018,7 +15032,6 @@ sql	property	en	sql
 standard	property	en	Standard
 standard description	property	en	standard description
 standard has been edited	property	en	standard has been edited
-standard has been saved	property	en	standard has been saved
 standard has not been edited	property	en	Standard has NOT been edited
 standard id	property	en	standard id
 standard prefix	property	en	Standard prefix
@@ -15496,6 +15509,7 @@ calendar_overview	controller	no	Kontrollplan
 check_lists	controller	no	Sjekklister
 choose_control_groups	controller	no	Velg kontrollgrupper
 choose_control_items	controller	no	Velg kontrollpunkt
+year	controller	no	År
 choose_building_type	controller	no	Velg byggtype
 choose_building_category	controller	no	Velg byggkategori
 choose_district	controller	no	Velg distrikt
@@ -15727,8 +15741,6 @@ unable_to_connect_to_database	controller	no	Problemer med å koble til databasen
 unknown_user	controller	no	Personen finnes ikke.
 weekly	controller	no	Ukentlig
 working_on	controller	no	Kontrakter under arbeid
-year	controller	no	År
-yes	controller	no	Ja
 control_items	controller	no	Kontrollpunkt
 control_item	controller	no	Kontrollpunkt
 procedure	controller	no	Prosedyre
@@ -15829,6 +15841,7 @@ error_msg_9	controller	no	Utførtdato kan ikke være etter fristdato
 error_msg_no_controls_in_period	controller	no	Ingen kontroller for bygg i denne perioden
 error_msg_no_controls_for_component	controller	no	Ingen kontroller for komponent i denne perioden
 error_msg_control_passed_due_date	controller	no	Sjekkliste kan ikke lagres da frist er overskredet
+billing_terms	rental	no	Terminer
 role at location	controller	no	Tildeling av rolle
 register new message	controller	no	Registrer ny melding
 show message	controller	no	Vis melding
@@ -15938,7 +15951,6 @@ billing_internal	rental	no	Intern
 billing_start	rental	no	Fakturastart
 billing_end	rental	no	Fakturastopp
 billing_term	rental	no	Termin
-billing_terms	rental	no	Terminer
 billing_removed_kf_contract	rental	no	Fjernet KF-kontrakt med id
 billing_removed_contract_part_1	rental	no	Fjernet kontrakt
 billing_removed_contract_part_2	rental	no	med total pris lik 0 kroner
@@ -16670,6 +16682,7 @@ email_create_account_message	common	no	Systemmelding fra BKBygg til %1 %2:<br/>D
 email_remove_delegate_title	common	no	BKBygg systemtilgang
 email_remove_delegate_message	common	no	Systemmelding fra BKBygg til %1 %2:<br/>Din tilgang til BKBygg på vegne av %3 %4 er slettet.<br/>Har du spørsmål send en e-post til BKBygg brukerstøtte.<br/>
 email_add_delegate_title	common	no	BKBygg systemtilgang
+language	admin	no	Språk
 email_add_delegate_message	common	no	Systemmelding fra BKBygg til %1 %2:<br/>%3 %4 har gitt deg tilgang til BKBbygg for følgende resultatenhet:<br/>%5<br/><br/>Du får tilgang til systemet via kommunens intranett.<br/>Under verktøy i høyre kolonne, velg BKBygg.<br/>Brukerveiledning finner du i systemet, ved å velge "Hjelp" i toppmenyen.<br/>Har du spørsmål send en e-post til BKBygg brukerstøtte.<br/>
 error_delegating_unit	frontend	no	En feil oppstod når det skulle under delegering til resultatenhet: %1
 searching_for_self	frontend	no	Vennligst søk etter et annet brukernavn enn ditt eget
@@ -16761,7 +16774,6 @@ enter your smtp server user	admin	no	Angi ditt SMTP-server brukernavn
 fatal	admin	no	Fatal
 first page	admin	no	Første side
 installed applications	admin	no	Innstallerte moduler
-language	admin	no	Språk
 line	admin	no	Linje
 list section	admin	no	List seksjon
 log message	admin	no	Loggmelding
@@ -17184,6 +17196,7 @@ use default	preferences	no	Bruk standard
 max matches per page	preferences	no	Antall treff per side
 any listing in phpgw will show you this number of entries or lines per page.<br>to many slow down the page display, to less will cost you the overview.	preferences	no	Alle lister vil vise dette antall treff per side.<br/>For mange vil gå utover innlastingstiden, for få vil hindre oversikt
 interface/template selection	preferences	no	Template-sett
+default start page	preferences	no	Standard startside
 a template defines the layout of phpgroupware and it contains icons for each application.	preferences	no	En template definerer utseende for BkBygg og inneholder ikoner for alle moduler.
 default	preferences	no	Standard
 theme (colors/fonts) selection	preferences	no	Tema (farger/fonter)
@@ -17314,7 +17327,6 @@ send order receipt as email	preferences	no	Send ordrebekreftelse som e-post
 send the order as bcc to the user	preferences	no	Send blindkopi av ordre til bruker
 notify owner of project/order on change	preferences	no	Varsle prosjekt-/ordre-eier ved endring
 by email	preferences	no	Varsle prosjekt- eller ordre-eier per e-post ved endringer
-default start page	preferences	no	Standard startside
 select your start-submodule	preferences	no	Velg undermodul du vil starte i når du går inn på modulen
 default project type	preferences	no	Standard prosjekttype
 select your default project type	preferences	no	Velg standard prosjekttype for dine prosjekter
@@ -18524,7 +18536,7 @@ SELECT pg_catalog.setval('public.seq_fm_tts_budget', 1, false);
 -- Name: seq_fm_tts_history; Type: SEQUENCE SET; Schema: public; Owner: portico
 --
 
-SELECT pg_catalog.setval('public.seq_fm_tts_history', 5, true);
+SELECT pg_catalog.setval('public.seq_fm_tts_history', 7, true);
 
 
 --
@@ -18545,7 +18557,7 @@ SELECT pg_catalog.setval('public.seq_fm_tts_status', 1, false);
 -- Name: seq_fm_tts_tickets; Type: SEQUENCE SET; Schema: public; Owner: portico
 --
 
-SELECT pg_catalog.setval('public.seq_fm_tts_tickets', 3, true);
+SELECT pg_catalog.setval('public.seq_fm_tts_tickets', 5, true);
 
 
 --
