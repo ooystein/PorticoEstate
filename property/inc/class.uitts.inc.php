@@ -494,14 +494,14 @@ HTML;
 		public function handle_multi_upload_file()
 		{
 			$id = phpgw::get_var('id');
-			
+
 			phpgw::import_class('property.multiuploader');
-			
+
 			$options['base_dir'] = 'fmticket/'.$id;
 			$options['upload_dir'] = $GLOBALS['phpgw_info']['server']['files_dir'].'/property/'.$options['base_dir'].'/';
 			$options['script_url'] = html_entity_decode(self::link(array('menuaction' => 'property.uitts.handle_multi_upload_file', 'id' => $id)));
 			$upload_handler = new property_multiuploader($options, false);
-			
+
 			switch ($_SERVER['REQUEST_METHOD']) {
 				case 'OPTIONS':
 				case 'HEAD':
@@ -521,29 +521,29 @@ HTML;
 				default:
 					$upload_handler->header('HTTP/1.1 405 Method Not Allowed');
 			}
-		
+
 			$GLOBALS['phpgw']->common->phpgw_exit();
 		}
-		
+
 		public function build_multi_upload_file()
 		{
 			phpgwapi_jquery::init_multi_upload_file();
 			$id = phpgw::get_var('id', 'int');
-			
+
 			$GLOBALS['phpgw_info']['flags']['noframework'] = true;
 			$GLOBALS['phpgw_info']['flags']['nofooter'] = true;
-			
+
 			$multi_upload_action = $GLOBALS['phpgw']->link('/index.php', array('menuaction' => 'property.uitts.handle_multi_upload_file', 'id' => $id));
 
 			$data = array
 				(
-				'multi_upload_action' => $multi_upload_action					
+				'multi_upload_action' => $multi_upload_action
 			);
-	
+
 			$GLOBALS['phpgw']->xslttpl->add_file(array('files', 'multi_upload_file'));
 			$GLOBALS['phpgw']->xslttpl->set_var('phpgw', array('multi_upload' => $data));
 		}
-		
+
 		function columns()
 		{
 			$receipt = array();
@@ -1197,7 +1197,7 @@ HTML;
 
 			self::render_template_xsl('datatable_jquery', $data);
 		}
-		
+
 		function report()
 		{
 			if (!$this->acl_read)
@@ -1210,10 +1210,10 @@ HTML;
 			$GLOBALS['phpgw']->jqcal->add_listener('filter_end_date');
 			phpgwapi_jquery::load_widget('chart');
 			phpgwapi_jquery::load_widget('print');
-				
+
 			$start_date = $GLOBALS['phpgw']->common->show_date(mktime(0, 0, 0, date("m"), '01', date("Y")), $this->dateFormat);
 			$end_date = $GLOBALS['phpgw']->common->show_date(mktime(0, 0, 0, date("m"), date("d"), date("Y")), $this->dateFormat);
-			
+
 			$appname = lang('helpdesk');
 			$function_msg = lang('Report');
 
@@ -1228,36 +1228,36 @@ HTML;
 			$GLOBALS['phpgw_info']['flags']['app_header'] = lang('property') . ' - ' . $appname . ': ' . $function_msg;
 			self::render_template_xsl(array('tts_report'), $data);
 		}
-		
+
 		function get_data_report()
 		{
 			$start_date = phpgw::get_var('start_date', 'date');
 			$end_date = phpgw::get_var('end_date', 'date');
 			$type = phpgw::get_var('type');
-			
+
 			$params['start_date'] = $start_date;
 			$params['end_date'] = $end_date;
 			$params['results'] = -1;
 			$params['type'] = $type;
 
 			$values = $this->bo->get_data_report($params);
-			
+
 			$rand = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
-	
+
 			$list_categories = $this->cats->formatted_xslt_list(array('format' => 'filter',
 				'selected' => $this->cat_id, 'globals' => true, 'use_acl' => $this->_category_acl));
-			
+
 			if ($type == 1)
 			{
 				$_categories = array();
 				foreach ($list_categories['cat_list'] as $_category)
 				{
 					$color = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
-					$_categories[$_category['cat_id']] = array('label'=>$_category['name'], 'count' => 0, 
+					$_categories[$_category['cat_id']] = array('label'=>$_category['name'], 'count' => 0,
 						'backgroundColor' => $color, 'hoverBackgroundColor' => $color);
 				}
 
-				foreach ($values as $item) 
+				foreach ($values as $item)
 				{
 					if ($_categories[$item['cat_id']]) {
 						$_categories[$item['cat_id']]['count'] = (int)$item['count_category'];
@@ -1265,9 +1265,9 @@ HTML;
 				}
 
 				return $_categories;
-			} 
+			}
 			else {
-				
+
 				$list_status = $this->bo->filter(array('format' => '', 'filter' => $this->status_id, 'default' => 'O'));
 				if (isset($this->bo->config->config_data['tts_lang_open']) && $this->bo->config->config_data['tts_lang_open'])
 				{
@@ -1282,11 +1282,11 @@ HTML;
 						continue;
 					}
 					$color = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
-					$_status[$_item['id']] = array('label'=>$_item['name'], 'count' => 0, 
-						'backgroundColor' => $color, 'hoverBackgroundColor' => $color);					
+					$_status[$_item['id']] = array('label'=>$_item['name'], 'count' => 0,
+						'backgroundColor' => $color, 'hoverBackgroundColor' => $color);
 				}
 
-				foreach ($values as $item) 
+				foreach ($values as $item)
 				{
 					if ($_status[$item['status']]) {
 						$_status[$item['status']]['count']  = (int)$item['count_status'];
@@ -1296,7 +1296,7 @@ HTML;
 				return $_status;
 			}
 		}
-		
+
 		function add()
 		{
 			if (!$this->acl_add)
@@ -2301,9 +2301,9 @@ HTML;
 						phpgwapi_cache::message_set($exc->getMessage(),'error');
 					}
 				}
-			
+
 			}
-	
+
 			if (!empty($values['do_approve']) && is_array($values['do_approve']))
 			{
 				$action_params = array(
@@ -2460,7 +2460,7 @@ HTML;
 			foreach ($record_history as &$history_entry)
 			{
 				$history_entry['sort_key'] = $z++;
-				
+
 			}
 			$datatable_def[] = array
 				(
@@ -3100,9 +3100,22 @@ HTML;
 				'value_order_received'	=> $ticket['order_received'] ? $GLOBALS['phpgw']->common->show_date($ticket['order_received']) : '[ DD/MM/YYYY - H:i ]',
 				'value_order_received_amount' => (int) $ticket['order_received_amount'],
 				'value_extra_mail_address' => $value_extra_mail_address,
-				'value_continuous'	=> $ticket['continuous']
+				'value_continuous'	=> $ticket['continuous'],
+				'documentation_status' => array('options' => array(
+					array(
+						"id" => 0,
+						"name" => "Ikke aktuelt",
+						"selected" => 1
+					),
+					array(
+						"id" => 1,
+						"name" => "Bestilt",
+						"selected" => 0
+					)
+				)),
 			);
-
+			// <option value="0">Ikke aktuelt</option>
+			// <option value="1">Bestilt</option>
 			phpgwapi_jquery::load_widget('numberformat');
 			phpgwapi_jquery::load_widget('autocomplete');
 			self::add_javascript('property', 'portico', 'tts.view.js');
@@ -3841,7 +3854,7 @@ HTML;
 				$string = str_replace(array("\r\n", "\r", "\n"), "<br />", $string);
 				return $string;
 			}
-			
+
 			if($contact_name)
 			{
 				$contact_block = '<br/>' . nl2br2(str_replace(array

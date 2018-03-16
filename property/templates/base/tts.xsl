@@ -1010,6 +1010,24 @@
 											</xsl:otherwise>
 										</xsl:choose>
 									</div>
+
+
+
+									<div class="pure-control-group">
+										<xsl:variable name="lang_documentation_status">
+											<xsl:value-of select="php:function('lang', 'documentation_status')"/>
+										</xsl:variable>
+										<label for="name">
+											<xsl:value-of select="$lang_documentation_status"/>
+										</label>
+										<select name="values[documentation_status]" class="pure-input-1-2" >
+											<xsl:apply-templates select="documentation_status/options"/>
+										</select>
+									</div>
+
+
+
+
 									<div class="pure-control-group">
 										<label>
 											<xsl:value-of select="php:function('lang', 'deadline')"/>
